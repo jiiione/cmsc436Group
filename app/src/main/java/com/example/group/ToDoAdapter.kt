@@ -38,6 +38,12 @@ class ToDoAdapter(private val toDoItems: ArrayList<ToDoItem>, context: Context) 
             checkedItems++
 
         }
+
+//        holder.removeBT.setOnClickListener {
+//
+//        }
+
+
     }
 
     override fun getItemCount(): Int {
