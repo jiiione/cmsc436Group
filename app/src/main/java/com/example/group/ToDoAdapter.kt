@@ -1,6 +1,7 @@
 package com.example.group
 
 import android.content.Context
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +14,11 @@ import java.util.ArrayList
 class ToDoAdapter(private val toDoItems: ArrayList<ToDoItem>, context: Context) :
 
     RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
-//    private val context = context
-
+    //    private val context = context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.todo_item, parent, false)
         return ToDoViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: ToDoViewHolder, pos: Int) {
@@ -28,13 +29,16 @@ class ToDoAdapter(private val toDoItems: ArrayList<ToDoItem>, context: Context) 
 
         holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
             toDoItem.completed = isChecked
+            /*********** need to fix *************************************/
+            checkedItems++
         }
 
-//        holder.checkBox.setOnClickListener {
+        holder.checkBox.setOnClickListener {
 //            toDoItem.checked = holder.checkBox.isChecked
-//        }
-    }
+            checkedItems++
 
+        }
+    }
 
     override fun getItemCount(): Int {
         return toDoItems.size
@@ -54,5 +58,9 @@ class ToDoAdapter(private val toDoItems: ArrayList<ToDoItem>, context: Context) 
         val itemNameTV: TextView = itemView.findViewById(R.id.itemNameTV)
         val descriptionTV: TextView = itemView.findViewById(R.id.descriptionTV)
         val checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
+    }
+
+    companion object {
+        var checkedItems : Int = 0
     }
 }

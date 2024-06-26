@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /*****************  hardcoded , remove later ****************/
     private fun getTotalItems(): Int {
         return 7
     }
