@@ -26,6 +26,10 @@
         <activity android:name=".ToDoList">
         </activity>
 
+        <activity android:name=".UserCalendar">
+        </activity>
+
+
     </application>
 
 </manifest>
